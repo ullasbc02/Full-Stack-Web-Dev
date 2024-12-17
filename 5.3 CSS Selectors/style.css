@@ -12,7 +12,7 @@ p {
 #id-selector-demo{
   color: green;
 }
-li[draggable]{
+li[value="4"] {
   color: blue;
 }
 *{
