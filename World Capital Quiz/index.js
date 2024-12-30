@@ -1,5 +1,16 @@
 import express from "express";
 import bodyParser from "body-parser";
+import pg from "pg";
+
+const db = new pg.Client({
+  user: "postgres",
+  host: "localhost",
+  database: "FirstDB",
+  password: "ullas123",
+  port: 5432,
+});
+
+db.connect();
 
 const app = express();
 const port = 3000;
@@ -10,6 +21,14 @@ let quiz = [
   { country: "United States of America", capital: "New York" },
 ];
 
+db.query("SELECT * FROM capitals", (err, res) => {
+  if (err) {
+    console.error("Error executing query", err.stack);
+  } else {
+    quiz = res.rows;
+  }
+  db.end();
+});
 let totalCorrect = 0;
 
 // Middleware
