@@ -4,14 +4,16 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import { Greeter } from './Greeter'
 import { Slot } from './Slot'
+import {Clicker} from './Clicker'
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <>
-      <Greeter name="Ullas"/>
+      {/* <Greeter name="Ullas"/>
       <Slot slots={['🍊', '🍋', '🍒']} />
-      <Slot slots={['d', 'd', 'd']} />
+      <Slot slots={['d', 'd', 'd']} /> */}
+      <Clicker />
     </>
   )
 }
